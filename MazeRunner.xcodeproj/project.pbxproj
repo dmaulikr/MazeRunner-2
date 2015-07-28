@@ -10,12 +10,13 @@
 		CF7387471B67994200676A03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387461B67994200676A03 /* main.m */; };
 		CF73874A1B67994200676A03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387491B67994200676A03 /* AppDelegate.m */; };
 		CF73874D1B67994200676A03 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73874C1B67994200676A03 /* GameScene.m */; };
-		CF73874F1B67994200676A03 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF73874E1B67994200676A03 /* GameScene.sks */; };
 		CF7387521B67994200676A03 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387511B67994200676A03 /* GameViewController.m */; };
 		CF7387551B67994200676A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF7387531B67994200676A03 /* Main.storyboard */; };
 		CF7387571B67994200676A03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF7387561B67994200676A03 /* Images.xcassets */; };
 		CF73875A1B67994200676A03 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7387581B67994200676A03 /* LaunchScreen.xib */; };
 		CF7387661B67994300676A03 /* MazeRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387651B67994300676A03 /* MazeRunnerTests.m */; };
+		CF7387721B679B3D00676A03 /* DEMazeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387711B679B3D00676A03 /* DEMazeGenerator.m */; };
+		CF7387741B679B4D00676A03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7387731B679B4D00676A03 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 		CF7387491B67994200676A03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CF73874B1B67994200676A03 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		CF73874C1B67994200676A03 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		CF73874E1B67994200676A03 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CF7387501B67994200676A03 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		CF7387511B67994200676A03 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		CF7387541B67994200676A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +45,10 @@
 		CF73875F1B67994200676A03 /* MazeRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazeRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7387641B67994300676A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF7387651B67994300676A03 /* MazeRunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeRunnerTests.m; sourceTree = "<group>"; };
+		CF73876F1B679B3D00676A03 /* DEIntegerPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEIntegerPoint.h; sourceTree = "<group>"; };
+		CF7387701B679B3D00676A03 /* DEMazeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMazeGenerator.h; sourceTree = "<group>"; };
+		CF7387711B679B3D00676A03 /* DEMazeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMazeGenerator.m; sourceTree = "<group>"; };
+		CF7387731B679B4D00676A03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7387741B679B4D00676A03 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +73,7 @@
 		CF7387381B67994200676A03 = {
 			isa = PBXGroup;
 			children = (
+				CF7387731B679B4D00676A03 /* CoreGraphics.framework */,
 				CF7387431B67994200676A03 /* MazeRunner */,
 				CF7387621B67994200676A03 /* MazeRunnerTests */,
 				CF7387421B67994200676A03 /* Products */,
@@ -86,11 +92,13 @@
 		CF7387431B67994200676A03 /* MazeRunner */ = {
 			isa = PBXGroup;
 			children = (
+				CF73876F1B679B3D00676A03 /* DEIntegerPoint.h */,
+				CF7387701B679B3D00676A03 /* DEMazeGenerator.h */,
+				CF7387711B679B3D00676A03 /* DEMazeGenerator.m */,
 				CF7387481B67994200676A03 /* AppDelegate.h */,
 				CF7387491B67994200676A03 /* AppDelegate.m */,
 				CF73874B1B67994200676A03 /* GameScene.h */,
 				CF73874C1B67994200676A03 /* GameScene.m */,
-				CF73874E1B67994200676A03 /* GameScene.sks */,
 				CF7387501B67994200676A03 /* GameViewController.h */,
 				CF7387511B67994200676A03 /* GameViewController.m */,
 				CF7387531B67994200676A03 /* Main.storyboard */,
@@ -209,7 +217,6 @@
 			files = (
 				CF73875A1B67994200676A03 /* LaunchScreen.xib in Resources */,
 				CF7387571B67994200676A03 /* Images.xcassets in Resources */,
-				CF73874F1B67994200676A03 /* GameScene.sks in Resources */,
 				CF7387551B67994200676A03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF7387521B67994200676A03 /* GameViewController.m in Sources */,
+				CF7387721B679B3D00676A03 /* DEMazeGenerator.m in Sources */,
 				CF73874A1B67994200676A03 /* AppDelegate.m in Sources */,
 				CF73874D1B67994200676A03 /* GameScene.m in Sources */,
 				CF7387471B67994200676A03 /* main.m in Sources */,

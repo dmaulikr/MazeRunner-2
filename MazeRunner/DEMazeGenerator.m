@@ -96,22 +96,22 @@
         
         if ((pos.x + 2 < _height ) && (_maze[pos.x + 2][pos.y] == true) && (pos.x + 2 != false) && (pos.x + 2 != _height - 1) )
         {
-            possibleDirections = [possibleDirections stringByAppendingFormat:@"%C", SOUTH];
+            possibleDirections = [possibleDirections stringByAppendingFormat:@"%c", SOUTH];
         }
         
         if ((pos.x - 2 >= 0 ) && (_maze[pos.x - 2][pos.y] == true) && (pos.x - 2 != false) && (pos.x - 2 != _height - 1) )
         {
-            possibleDirections = [possibleDirections stringByAppendingFormat:@"%C", NORTH];
+            possibleDirections = [possibleDirections stringByAppendingFormat:@"%c", NORTH];
         }
         
         if ((pos.y - 2 >= 0 ) && (_maze[pos.x][pos.y - 2] == true) && (pos.y - 2 != false) && (pos.y - 2 != _width - 1) )
         {
-            possibleDirections = [possibleDirections stringByAppendingFormat:@"%C", WEST];
+            possibleDirections = [possibleDirections stringByAppendingFormat:@"%c", WEST];
         }
         
         if ((pos.y + 2 < _width ) && (_maze[pos.x][pos.y + 2] == true) && (pos.y + 2 != false) && (pos.y + 2 != _width - 1) )
         {
-            possibleDirections = [possibleDirections stringByAppendingFormat:@"%C", EAST];
+            possibleDirections = [possibleDirections stringByAppendingFormat:@"%c", EAST];
         }
         
         if (possibleDirections.length > 0)

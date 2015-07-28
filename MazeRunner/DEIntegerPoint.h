@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@import CoreGraphics;
 //This a new integer point structure, as apple don't have one of these, we have to build one
 
 struct DEIntegerPoint
