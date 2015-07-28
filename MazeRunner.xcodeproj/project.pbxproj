@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF7387471B67994200676A03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387461B67994200676A03 /* main.m */; };
+		CF73874A1B67994200676A03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387491B67994200676A03 /* AppDelegate.m */; };
+		CF73874D1B67994200676A03 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73874C1B67994200676A03 /* GameScene.m */; };
+		CF73874F1B67994200676A03 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF73874E1B67994200676A03 /* GameScene.sks */; };
+		CF7387521B67994200676A03 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387511B67994200676A03 /* GameViewController.m */; };
+		CF7387551B67994200676A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF7387531B67994200676A03 /* Main.storyboard */; };
+		CF7387571B67994200676A03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF7387561B67994200676A03 /* Images.xcassets */; };
+		CF73875A1B67994200676A03 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7387581B67994200676A03 /* LaunchScreen.xib */; };
+		CF7387661B67994300676A03 /* MazeRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387651B67994300676A03 /* MazeRunnerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF7387601B67994200676A03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF7387391B67994200676A03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF7387401B67994200676A03;
+			remoteInfo = MazeRunner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CF7387411B67994200676A03 /* MazeRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazeRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF7387451B67994200676A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF7387461B67994200676A03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF7387481B67994200676A03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CF7387491B67994200676A03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CF73874B1B67994200676A03 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		CF73874C1B67994200676A03 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		CF73874E1B67994200676A03 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		CF7387501B67994200676A03 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		CF7387511B67994200676A03 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		CF7387541B67994200676A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF7387561B67994200676A03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CF7387591B67994200676A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CF73875F1B67994200676A03 /* MazeRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazeRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF7387641B67994300676A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF7387651B67994300676A03 /* MazeRunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeRunnerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF73873E1B67994200676A03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF73875C1B67994200676A03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF7387381B67994200676A03 = {
+			isa = PBXGroup;
+			children = (
+				CF7387431B67994200676A03 /* MazeRunner */,
+				CF7387621B67994200676A03 /* MazeRunnerTests */,
+				CF7387421B67994200676A03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF7387421B67994200676A03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF7387411B67994200676A03 /* MazeRunner.app */,
+				CF73875F1B67994200676A03 /* MazeRunnerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF7387431B67994200676A03 /* MazeRunner */ = {
+			isa = PBXGroup;
+			children = (
+				CF7387481B67994200676A03 /* AppDelegate.h */,
+				CF7387491B67994200676A03 /* AppDelegate.m */,
+				CF73874B1B67994200676A03 /* GameScene.h */,
+				CF73874C1B67994200676A03 /* GameScene.m */,
+				CF73874E1B67994200676A03 /* GameScene.sks */,
+				CF7387501B67994200676A03 /* GameViewController.h */,
+				CF7387511B67994200676A03 /* GameViewController.m */,
+				CF7387531B67994200676A03 /* Main.storyboard */,
+				CF7387561B67994200676A03 /* Images.xcassets */,
+				CF7387581B67994200676A03 /* LaunchScreen.xib */,
+				CF7387441B67994200676A03 /* Supporting Files */,
+			);
+			path = MazeRunner;
+			sourceTree = "<group>";
+		};
+		CF7387441B67994200676A03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF7387451B67994200676A03 /* Info.plist */,
+				CF7387461B67994200676A03 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF7387621B67994200676A03 /* MazeRunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF7387651B67994300676A03 /* MazeRunnerTests.m */,
+				CF7387631B67994300676A03 /* Supporting Files */,
+			);
+			path = MazeRunnerTests;
+			sourceTree = "<group>";
+		};
+		CF7387631B67994300676A03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF7387641B67994300676A03 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF7387401B67994200676A03 /* MazeRunner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF7387691B67994300676A03 /* Build configuration list for PBXNativeTarget "MazeRunner" */;
+			buildPhases = (
+				CF73873D1B67994200676A03 /* Sources */,
+				CF73873E1B67994200676A03 /* Frameworks */,
+				CF73873F1B67994200676A03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MazeRunner;
+			productName = MazeRunner;
+			productReference = CF7387411B67994200676A03 /* MazeRunner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF73875E1B67994200676A03 /* MazeRunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF73876C1B67994300676A03 /* Build configuration list for PBXNativeTarget "MazeRunnerTests" */;
+			buildPhases = (
+				CF73875B1B67994200676A03 /* Sources */,
+				CF73875C1B67994200676A03 /* Frameworks */,
+				CF73875D1B67994200676A03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF7387611B67994200676A03 /* PBXTargetDependency */,
+			);
+			name = MazeRunnerTests;
+			productName = MazeRunnerTests;
+			productReference = CF73875F1B67994200676A03 /* MazeRunnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF7387391B67994200676A03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = cekisakurek;
+				TargetAttributes = {
+					CF7387401B67994200676A03 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					CF73875E1B67994200676A03 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = CF7387401B67994200676A03;
+					};
+				};
+			};
+			buildConfigurationList = CF73873C1B67994200676A03 /* Build configuration list for PBXProject "MazeRunner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF7387381B67994200676A03;
+			productRefGroup = CF7387421B67994200676A03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF7387401B67994200676A03 /* MazeRunner */,
+				CF73875E1B67994200676A03 /* MazeRunnerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF73873F1B67994200676A03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF73875A1B67994200676A03 /* LaunchScreen.xib in Resources */,
+				CF7387571B67994200676A03 /* Images.xcassets in Resources */,
+				CF73874F1B67994200676A03 /* GameScene.sks in Resources */,
+				CF7387551B67994200676A03 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF73875D1B67994200676A03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF73873D1B67994200676A03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7387521B67994200676A03 /* GameViewController.m in Sources */,
+				CF73874A1B67994200676A03 /* AppDelegate.m in Sources */,
+				CF73874D1B67994200676A03 /* GameScene.m in Sources */,
+				CF7387471B67994200676A03 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF73875B1B67994200676A03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7387661B67994300676A03 /* MazeRunnerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF7387611B67994200676A03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF7387401B67994200676A03 /* MazeRunner */;
+			targetProxy = CF7387601B67994200676A03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CF7387531B67994200676A03 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF7387541B67994200676A03 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CF7387581B67994200676A03 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF7387591B67994200676A03 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF7387671B67994300676A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CF7387681B67994300676A03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF73876A1B67994300676A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MazeRunner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CF73876B1B67994300676A03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MazeRunner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CF73876D1B67994300676A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MazeRunnerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MazeRunner.app/MazeRunner";
+			};
+			name = Debug;
+		};
+		CF73876E1B67994300676A03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MazeRunnerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MazeRunner.app/MazeRunner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF73873C1B67994200676A03 /* Build configuration list for PBXProject "MazeRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF7387671B67994300676A03 /* Debug */,
+				CF7387681B67994300676A03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF7387691B67994300676A03 /* Build configuration list for PBXNativeTarget "MazeRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF73876A1B67994300676A03 /* Debug */,
+				CF73876B1B67994300676A03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CF73876C1B67994300676A03 /* Build configuration list for PBXNativeTarget "MazeRunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF73876D1B67994300676A03 /* Debug */,
+				CF73876E1B67994300676A03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF7387391B67994200676A03 /* Project object */;
+}
