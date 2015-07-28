@@ -88,7 +88,7 @@
     
     _moves = [NSMutableArray new];
 
-    [_moves addObject:[NSNumber numberWithInt:pos.y + (pos.x * _width)]];
+    [_moves addObject:[NSNumber numberWithInteger:pos.y + (pos.x * _width)]];
     
     while ([_moves count])
     {
@@ -116,7 +116,7 @@
         
         if (possibleDirections.length > 0)
         {
-            move = [self randIntMin:0 andMax:(possibleDirections.length - 1)];
+            move = [self randIntMin:0 andMax:(int)(possibleDirections.length - 1)];
             
             const char *array = [possibleDirections UTF8String];
       
@@ -147,7 +147,7 @@
                     break;        
             }
 
-            [_moves addObject:[NSNumber numberWithInt:pos.y + (pos.x * _width)]];
+            [_moves addObject:[NSNumber numberWithInteger:pos.y + (pos.x * _width)]];
         }
         else
         {

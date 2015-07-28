@@ -42,11 +42,12 @@ static const uint32_t groundBitMask     =  0x1 << 3;
         
 //        SKShapeNode *node = [self ballWithFrame:CGRectMake(0, 200, 20, 20)];
 //        [self addChild:node];
-//        
+//
 //        SKShapeNode *wall = [self wallWithFrame:CGRectMake(0, 0, 50, 50)];
 //        [self addChild:wall];
         
         [self createMaze];
+        [self setupMotion];
     }
     return self;
 }
@@ -64,8 +65,8 @@ static const uint32_t groundBitMask     =  0x1 << 3;
     ball.strokeColor = [SKColor blackColor];
     [ball setPhysicsBody:[SKPhysicsBody bodyWithCircleOfRadius:radious center:CGPointMake(radious, radious)]];
 //    [ball.physicsBody setMass:10];
-//    ball.physicsBody.categoryBitMask =  ballBitMask;
-//    ball.physicsBody.contactTestBitMask = groundBitMask;
+    ball.physicsBody.categoryBitMask =  ballBitMask;
+    ball.physicsBody.contactTestBitMask = groundBitMask;
     
     return ball;
 }
@@ -120,11 +121,8 @@ static const uint32_t groundBitMask     =  0x1 << 3;
     
     [maze arrayMaze:^(bool **item) {
         
-//        NSMutableString *rowString = [NSMutableString string];
-        
         for (int r = 0; r < row * 2 + 1 ; r++)
         {
-//            [rowString setString:[NSString stringWithFormat:@"%d: ", r]];
             
             for (int c = 0; c < col * 2 + 1 ; c++)
             {
@@ -136,7 +134,7 @@ static const uint32_t groundBitMask     =  0x1 << 3;
                 }
                 else if(r == 1 && c ==1)
                 {
-                    CGRect rect = CGRectMake((r*itemSize.width), (c*itemSize.height), itemSize.height, itemSize.height);
+                    CGRect rect = CGRectMake((r*itemSize.width), (c*itemSize.height), itemSize.height-2, itemSize.height-2);
                     
                     SKShapeNode *ball = [self ballWithFrame:rect];
                     [self addChild:ball];
@@ -163,9 +161,6 @@ static const uint32_t groundBitMask     =  0x1 << 3;
     self.queue = [[NSOperationQueue alloc] init];
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = 5.0 / 60.0;
-    
-    // UIDevice *device = [UIDevice currentDevice];
-    
     [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
                                                             toQueue:self.queue
                                                         withHandler:^(CMDeviceMotion *motion, NSError *error)
@@ -173,9 +168,7 @@ static const uint32_t groundBitMask     =  0x1 << 3;
          [[NSOperationQueue mainQueue] addOperationWithBlock:^{
              CGFloat x = motion.gravity.x;
              CGFloat y = motion.gravity.y;
-             //            CGFloat z = motion.gravity.z;
-             self.physicsWorld.gravity = CGVectorMake(-y, x);
-//             [self.backgroundNode updateWithMotion:motion];
+             self.physicsWorld.gravity = CGVectorMake(y, -x);
              
          }];
      }];
@@ -193,35 +186,35 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 //    [self addChild:myLabel];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//    /* Called when a touch begins */
-//    
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+////    /* Called when a touch begins */
+////    
+////    for (UITouch *touch in touches) {
+////        CGPoint location = [touch locationInNode:self];
+////        
+////        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+////        
+////        sprite.xScale = 0.5;
+////        sprite.yScale = 0.5;
+////        sprite.position = location;
+////        
+////        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+////        
+////        [sprite runAction:[SKAction repeatActionForever:action]];
+////        
+////        [self addChild:sprite];
+////    }
 //    for (UITouch *touch in touches) {
 //        CGPoint location = [touch locationInNode:self];
-//        
-//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//        
-//        sprite.xScale = 0.5;
-//        sprite.yScale = 0.5;
-//        sprite.position = location;
-//        
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-//        
-//        [sprite runAction:[SKAction repeatActionForever:action]];
-//        
-//        [self addChild:sprite];
+//        NSLog(@"%@",NSStringFromCGPoint(location));
 //    }
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        NSLog(@"%@",NSStringFromCGPoint(location));
-    }
-
-//    CGRect rect = CGRectMake((r*itemSize.width), (c*itemSize.height), 10, 10);
-//    NSLog(@"%@",NSStringFromCGRect(rect));
-//    SKShapeNode *node = [SKShapeNode shapeNodeWithRect:rect];
-//    [(SKShapeNode*)node setFillColor:[SKColor colorWithRed:0.5 green:0.5 blue:1 alpha:1.0]];
-//    [self addChild:node];
-}
+//
+////    CGRect rect = CGRectMake((r*itemSize.width), (c*itemSize.height), 10, 10);
+////    NSLog(@"%@",NSStringFromCGRect(rect));
+////    SKShapeNode *node = [SKShapeNode shapeNodeWithRect:rect];
+////    [(SKShapeNode*)node setFillColor:[SKColor colorWithRed:0.5 green:0.5 blue:1 alpha:1.0]];
+////    [self addChild:node];
+//}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
@@ -258,7 +251,7 @@ static const uint32_t groundBitMask     =  0x1 << 3;
         
     }
     else if ((firstBody.categoryBitMask == ballBitMask) &&(secondBody.categoryBitMask == exitBitMask)){
-//        NSLog(@"finished");
+        NSLog(@"finished");
 //        [[User currentUser]nextLevel];
 //        LevelFinishScene *scene=[LevelFinishScene sceneWithSize:self.size];
 //        [scene setMessage:@"Next Level"];

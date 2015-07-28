@@ -60,7 +60,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskLandscape;
+    return UIInterfaceOrientationMaskLandscapeLeft;
 }
 
 - (void)didReceiveMemoryWarning
