@@ -23,6 +23,12 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 @property(strong)NSOperationQueue *queue;
 @property (assign, nonatomic) CMAcceleration acceleration;
 
+@property SKCameraNode *abbas;
+
+@property SKNode *canvas;
+
+@property CGFloat initialScale;
+@property CGPoint panStartPoint;
 @end
 
 @implementation GameScene
@@ -35,13 +41,101 @@ static const uint32_t groundBitMask     =  0x1 << 3;
     return scene;
 }
 
+- (void)pinch:(UIPinchGestureRecognizer *)sender
+{
+
+    
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+            self.initialScale = sender.scale;
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            float dS = self.initialScale - sender.scale;
+            NSLog(@"%f",self.camera.xScale);
+            if ((self.camera.xScale + dS) >0) {
+                self.camera.xScale += dS;
+                self.camera.yScale += dS;
+            }
+            
+        }
+        
+
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)pan:(UIPanGestureRecognizer *)sender
+{
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+            self.panStartPoint = [sender locationInView:sender.view];
+            self.panStartPoint =[self convertPointFromView:self.panStartPoint];
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+//            CGPoint lastPoint = [sender translationInView:sender.view];
+//            float dX = (lastPoint.x - self.panStartPoint.x);
+//            float dY = (lastPoint.y - self.panStartPoint.y);
+//            self.camera.position = CGPointMake(self.camera.position.x - dX, self.camera.position.y + dY);
+////            NSLog(@"%f %f",dX,dY);
+//            NSLog(@"%@",NSStringFromCGPoint(lastPoint));
+//            [sender setTranslation:CGPointZero inView:sender.view];
+            
+            
+            CGPoint translation = [sender translationInView:sender.view];
+            translation = CGPointMake(-translation.x, translation.y);
+            
+            CGPoint movePoint = CGPointMake(self.camera.position.x + translation.x, self.camera.position.y + translation.y);
+            self.camera.position = movePoint;
+
+            [sender setTranslation:CGPointZero inView:sender.view];
+            
+        }
+            
+            
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)didMoveToView:(SKView *)view
+{
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinch:)];
+    [self.view addGestureRecognizer:pinch];
+    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.view addGestureRecognizer:pan];
+}
+
 - (instancetype)initWithSize:(CGSize)size
 {
     self = [super initWithSize:size];
     if (self) {
+//        self.view.multipleTouchEnabled = YES;
         
+        
+//        self.initialDistance = 1;
+
+//        self.unitDistance = [self getDistance:CGPointMake(0, 0) toPoint:CGPointMake(size.width, size.height)] / 4.0;
+
+        
+
+        
+        
+        
+        self.difficulty = MazeDifficultyEasy;
+//        self.difficulty = MazeDifficultyMedium;
+//        self.difficulty = MazeDifficultyHard;
+//        self.difficulty = MazeDifficultyHarder;
+//        self.difficulty = MazeDifficultyHardcore;
+//        self.difficulty = MazeDifficultyNightmare;
         self.physicsWorld.contactDelegate = self;
-        self.physicsWorld.gravity = CGVectorMake(0.0f, -5.0f);
+//        self.physicsWorld.gravity = CGVectorMake(0.0f, -5.0f);
         
 //        self.backgroundColor = [SKColor whiteColor];
         
@@ -55,21 +149,32 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 //        SKShapeNode *wall = [self wallWithFrame:CGRectMake(0, 0, 50, 50)];
 //        [self addChild:wall];
         
+        self.abbas = [[SKCameraNode alloc] init];
+        
+        self.camera = self.abbas;
+        
+        
         [self createMazeWithDifficulty:self.difficulty];
         [self setupMotion];
+        
     }
     return self;
 }
 
 - (void)createMazeWithDifficulty:(int)difficulty
 {
-    CGSize mazeSize = CGSizeMake(self.size.height/2.0, self.size.width/2.0);
-    
-    if (difficulty > 20) {
-        difficulty = 20;
-    }
+//    CGSize mazeSize = CGSizeMake(160*2, 240*2);
+    CGSize mazeSize = CGSizeMake(500, 1000);
+    NSLog(@"size:%@",NSStringFromCGSize(mazeSize));
 
-    CGSize itemSize = CGSizeMake(30-difficulty, 30-difficulty);
+
+    // 2 4 8 10 16 20 32 40 80/160
+    // 2 4 8 16 6 12 24 48 10 20 40 80 30 60 120/240
+    
+    // 
+    
+    
+    CGSize itemSize = CGSizeMake(40, 40);
     int row = floorf(mazeSize.height / itemSize.height);
     int col = floorf(mazeSize.width / itemSize.width);
     
@@ -88,13 +193,25 @@ static const uint32_t groundBitMask     =  0x1 << 3;
                     if (item[r][c] == 1)
                     {
                         CGRect rect = CGRectMake((r*itemSize.width), (c*itemSize.height), itemSize.height, itemSize.height);
-                        [bodies addObject:[SKPhysicsBody bodyWithEdgeLoopFromRect:rect]];
-                        CGPathAddRect(path, NULL, rect);
+//                        [bodies addObject:[SKPhysicsBody bodyWithEdgeLoopFromRect:rect]];
+//                        CGPathAddRect(path, NULL, rect);
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^(void)
+                                       {
+                        SKShapeNode  *shape = [[SKShapeNode alloc] init];
+                        shape.path = [UIBezierPath bezierPathWithRect:rect].CGPath;
+                        [(SKShapeNode*)shape setFillColor:[SKColor colorWithRed:0.5 green:0.5 blue:1 alpha:1.0]];
+                        //            [effectNode addChild:shape];
+                        //            [self addChild:effectNode];
+                                           shape.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:rect];
+                        [self addChild:shape];
+                                       });
+                        
                     }
                 }
             }
         }];
-        
+        return
         dispatch_async(dispatch_get_main_queue(), ^(void)
         {
             //Run UI Updates
@@ -103,9 +220,9 @@ static const uint32_t groundBitMask     =  0x1 << 3;
             SKShapeNode  *shape = [[SKShapeNode alloc] init];
             shape.path = path;
             [(SKShapeNode*)shape setFillColor:[SKColor colorWithRed:0.5 green:0.5 blue:1 alpha:1.0]];
-            
-            [effectNode addChild:shape];
-            [self addChild:effectNode];
+//            [effectNode addChild:shape];
+//            [self addChild:effectNode];
+            [self addChild:shape];
             
             effectNode.shouldRasterize = YES;
             
@@ -122,10 +239,17 @@ static const uint32_t groundBitMask     =  0x1 << 3;
                 [self addChild:exit];
             }
             
-            self.physicsBody = [SKPhysicsBody bodyWithBodies:bodies];
-            [self.physicsBody setCategoryBitMask:groundBitMask];
-            [self.physicsBody setCollisionBitMask:ballBitMask];
-            self.physicsBody.affectedByGravity = NO;
+            
+//            shape.physicsBody = [SKPhysicsBody bodyWithBodies:bodies];
+//            [shape.physicsBody setCategoryBitMask:groundBitMask];
+//            [shape.physicsBody setCollisionBitMask:ballBitMask];
+//            shape.physicsBody.affectedByGravity = NO;
+//            shape.physicsBody.dynamic = NO;
+            
+//            self.physicsBody = [SKPhysicsBody bodyWithBodies:bodies];
+//            [self.physicsBody setCategoryBitMask:groundBitMask];
+//            [self.physicsBody setCollisionBitMask:ballBitMask];
+//            self.physicsBody.affectedByGravity = NO;
         });
     });
 }
@@ -236,4 +360,41 @@ static const uint32_t groundBitMask     =  0x1 << 3;
     
     return exit;
 }
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    if (touches.count == 1) {
+//        UITouch *t = [touches anyObject];
+//        self.panStartPoint = [t locationInNode:self];
+//    }
+//    
+//
+//}
+//
+//- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    
+//    if (touches.count == 1) {
+//        UITouch *t = [touches anyObject];
+//        
+//        CGPoint lastPoint = [t locationInNode:self];
+//
+//        
+//        float dX = self.panStartPoint.x - lastPoint.x;
+//        float dY = self.panStartPoint.y - lastPoint.y;
+//        self.camera.position = CGPointMake(self.camera.position.x + dX, self.camera.position.y + dY);
+//
+//    }
+//   
+//
+//    
+//    
+//    
+//}
+//- (double)getDistance:(CGPoint)fromPoint toPoint:(CGPoint)otherPoint
+//{
+//    double deltaX = otherPoint.x - fromPoint.x;
+//    double deltaY = otherPoint.y - fromPoint.y;
+//    return sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+//}
 @end

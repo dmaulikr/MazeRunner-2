@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF5972A41BE27DE00030DAA3 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5972991BE27DE00030DAA3 /* Cell.m */; };
+		CF5972A51BE27DE00030DAA3 /* Matrix.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59729B1BE27DE00030DAA3 /* Matrix.m */; };
+		CF5972A61BE27DE00030DAA3 /* MatrixEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59729D1BE27DE00030DAA3 /* MatrixEnumerator.m */; };
+		CF5972A71BE27DE00030DAA3 /* MatrixOutofBoundException.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59729F1BE27DE00030DAA3 /* MatrixOutofBoundException.m */; };
+		CF5972A81BE27DE00030DAA3 /* MazeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5972A11BE27DE00030DAA3 /* MazeCell.m */; };
+		CF5972A91BE27DE00030DAA3 /* MazeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5972A31BE27DE00030DAA3 /* MazeView.m */; };
+		CF5972AC1BE27F280030DAA3 /* GameScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5972AB1BE27F280030DAA3 /* GameScene1.m */; };
 		CF7387471B67994200676A03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387461B67994200676A03 /* main.m */; };
 		CF73874A1B67994200676A03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387491B67994200676A03 /* AppDelegate.m */; };
 		CF73874D1B67994200676A03 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73874C1B67994200676A03 /* GameScene.m */; };
@@ -30,6 +37,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF5972981BE27DE00030DAA3 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		CF5972991BE27DE00030DAA3 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		CF59729A1BE27DE00030DAA3 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		CF59729B1BE27DE00030DAA3 /* Matrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrix.m; sourceTree = "<group>"; };
+		CF59729C1BE27DE00030DAA3 /* MatrixEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixEnumerator.h; sourceTree = "<group>"; };
+		CF59729D1BE27DE00030DAA3 /* MatrixEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixEnumerator.m; sourceTree = "<group>"; };
+		CF59729E1BE27DE00030DAA3 /* MatrixOutofBoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixOutofBoundException.h; sourceTree = "<group>"; };
+		CF59729F1BE27DE00030DAA3 /* MatrixOutofBoundException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixOutofBoundException.m; sourceTree = "<group>"; };
+		CF5972A01BE27DE00030DAA3 /* MazeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MazeCell.h; sourceTree = "<group>"; };
+		CF5972A11BE27DE00030DAA3 /* MazeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MazeCell.m; sourceTree = "<group>"; };
+		CF5972A21BE27DE00030DAA3 /* MazeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MazeView.h; sourceTree = "<group>"; };
+		CF5972A31BE27DE00030DAA3 /* MazeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MazeView.m; sourceTree = "<group>"; };
+		CF5972AA1BE27F280030DAA3 /* GameScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene1.h; sourceTree = "<group>"; };
+		CF5972AB1BE27F280030DAA3 /* GameScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene1.m; sourceTree = "<group>"; };
 		CF7387411B67994200676A03 /* MazeRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazeRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7387451B67994200676A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF7387461B67994200676A03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +91,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF5972971BE27DCE0030DAA3 /* maze */ = {
+			isa = PBXGroup;
+			children = (
+				CF5972981BE27DE00030DAA3 /* Cell.h */,
+				CF5972991BE27DE00030DAA3 /* Cell.m */,
+				CF59729A1BE27DE00030DAA3 /* Matrix.h */,
+				CF59729B1BE27DE00030DAA3 /* Matrix.m */,
+				CF59729C1BE27DE00030DAA3 /* MatrixEnumerator.h */,
+				CF59729D1BE27DE00030DAA3 /* MatrixEnumerator.m */,
+				CF59729E1BE27DE00030DAA3 /* MatrixOutofBoundException.h */,
+				CF59729F1BE27DE00030DAA3 /* MatrixOutofBoundException.m */,
+				CF5972A01BE27DE00030DAA3 /* MazeCell.h */,
+				CF5972A11BE27DE00030DAA3 /* MazeCell.m */,
+				CF5972A21BE27DE00030DAA3 /* MazeView.h */,
+				CF5972A31BE27DE00030DAA3 /* MazeView.m */,
+			);
+			path = maze;
+			sourceTree = "<group>";
+		};
 		CF7387381B67994200676A03 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +132,7 @@
 		CF7387431B67994200676A03 /* MazeRunner */ = {
 			isa = PBXGroup;
 			children = (
+				CF5972971BE27DCE0030DAA3 /* maze */,
 				CF73876F1B679B3D00676A03 /* DEIntegerPoint.h */,
 				CF7387701B679B3D00676A03 /* DEMazeGenerator.h */,
 				CF7387711B679B3D00676A03 /* DEMazeGenerator.m */,
@@ -105,6 +146,8 @@
 				CF7387561B67994200676A03 /* Images.xcassets */,
 				CF7387581B67994200676A03 /* LaunchScreen.xib */,
 				CF7387441B67994200676A03 /* Supporting Files */,
+				CF5972AA1BE27F280030DAA3 /* GameScene1.h */,
+				CF5972AB1BE27F280030DAA3 /* GameScene1.m */,
 			);
 			path = MazeRunner;
 			sourceTree = "<group>";
@@ -184,6 +227,7 @@
 				TargetAttributes = {
 					CF7387401B67994200676A03 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = EKE54P2FQH;
 					};
 					CF73875E1B67994200676A03 = {
 						CreatedOnToolsVersion = 6.4;
@@ -235,11 +279,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF5972AC1BE27F280030DAA3 /* GameScene1.m in Sources */,
 				CF7387521B67994200676A03 /* GameViewController.m in Sources */,
 				CF7387721B679B3D00676A03 /* DEMazeGenerator.m in Sources */,
+				CF5972A91BE27DE00030DAA3 /* MazeView.m in Sources */,
 				CF73874A1B67994200676A03 /* AppDelegate.m in Sources */,
 				CF73874D1B67994200676A03 /* GameScene.m in Sources */,
+				CF5972A81BE27DE00030DAA3 /* MazeCell.m in Sources */,
+				CF5972A61BE27DE00030DAA3 /* MatrixEnumerator.m in Sources */,
 				CF7387471B67994200676A03 /* main.m in Sources */,
+				CF5972A71BE27DE00030DAA3 /* MatrixOutofBoundException.m in Sources */,
+				CF5972A41BE27DE00030DAA3 /* Cell.m in Sources */,
+				CF5972A51BE27DE00030DAA3 /* Matrix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +349,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cihan Emre Kisakurek (4F8F7K4HGG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -341,7 +392,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cihan Emre Kisakurek (4F8F7K4HGG)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -365,8 +416,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MazeRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cekisakurek.AnimationExperiments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -375,8 +428,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MazeRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cekisakurek.AnimationExperiments;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -434,6 +489,7 @@
 				CF73876B1B67994300676A03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF73876C1B67994300676A03 /* Build configuration list for PBXNativeTarget "MazeRunnerTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +498,7 @@
 				CF73876E1B67994300676A03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

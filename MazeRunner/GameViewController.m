@@ -8,7 +8,7 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
-
+//#import "GameScene1.h"
 
 
 @implementation GameViewController
@@ -38,11 +38,12 @@
     
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-//    skView.showsPhysics=YES;
+    skView.multipleTouchEnabled = YES;
+
     if (!skView.scene) {
         skView.showsFPS = YES;
         skView.showsNodeCount = YES;
-        
+        skView.showsPhysics=YES;
         // Create and configure the scene.
         SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
@@ -58,7 +59,7 @@
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskLandscapeLeft;
 }

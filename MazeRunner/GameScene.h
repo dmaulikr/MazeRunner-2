@@ -9,11 +9,14 @@
 #import <SpriteKit/SpriteKit.h>
 
 typedef enum : NSUInteger {
-    MazeDifficultyEasy = 10,
-    MazeDifficultyMedium = 15,
+    MazeDifficultyNightmare = 8,
+    MazeDifficultyHardcore = 10,
+    MazeDifficultyHarder = 16,
     MazeDifficultyHard = 20,
+    MazeDifficultyMedium = 32,
+    MazeDifficultyEasy = 40,
 } MazeDifficulty;
-
+//8 10 16 20 32 40
 
 @interface GameScene : SKScene
 
