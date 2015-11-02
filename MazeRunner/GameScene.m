@@ -15,6 +15,9 @@ static const uint32_t ballBitMask       =  0x1 << 0;
 static const uint32_t exitBitMask       =  0x1 << 2;
 static const uint32_t groundBitMask     =  0x1 << 3;
 
+
+#define MAX_ZOOM_SCALE 3.0
+
 @interface GameScene ()<SKPhysicsContactDelegate>
 
 @property (assign)MazeDifficulty difficulty;
@@ -26,6 +29,8 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 @property SKCameraNode *abbas;
 
 @property SKNode *canvas;
+
+@property CGFloat mazeWidth;
 
 @property CGFloat initialScale;
 @property CGPoint panStartPoint;
@@ -52,12 +57,23 @@ static const uint32_t groundBitMask     =  0x1 << 3;
         case UIGestureRecognizerStateChanged:
         {
             float dS = self.initialScale - sender.scale;
-            NSLog(@"%f",self.camera.xScale);
-            if ((self.camera.xScale + dS) >0) {
-                self.camera.xScale += dS;
-                self.camera.yScale += dS;
-            }
             
+            self.camera.xScale += dS;
+            self.camera.yScale += dS;
+
+
+            if ((self.camera.xScale) < 1.0)
+            {
+                self.camera.xScale = 1.0;
+                self.camera.yScale = 1.0;
+            }
+            else if((self.camera.xScale) > MAX_ZOOM_SCALE)
+            {
+                self.camera.xScale = MAX_ZOOM_SCALE;
+                self.camera.yScale = MAX_ZOOM_SCALE;
+
+            }
+            NSLog(@"%f",self.camera.xScale);
         }
         
 
@@ -89,9 +105,26 @@ static const uint32_t groundBitMask     =  0x1 << 3;
             CGPoint translation = [sender translationInView:sender.view];
             translation = CGPointMake(-translation.x, translation.y);
             
-            CGPoint movePoint = CGPointMake(self.camera.position.x + translation.x, self.camera.position.y + translation.y);
-            self.camera.position = movePoint;
+            CGPoint movePoint = CGPointMake(self.camera.position.x + translation.x * self.camera.xScale, self.camera.position.y);
+            if (movePoint.x < self.size.width/2.0)
+            {
 
+                movePoint.x = self.size.width/2.0;
+                SKAction *move = [SKAction moveTo:movePoint duration:0.1];
+                [self.abbas runAction:move];
+                
+            }
+            else if(movePoint.x > (self.mazeWidth + self.size.width))
+            {
+                movePoint.x = (self.mazeWidth + self.size.width);
+                SKAction *move = [SKAction moveTo:movePoint duration:0.1];
+                [self.abbas runAction:move];
+            }
+            else
+            {
+                self.abbas.position = movePoint;
+            }
+            
             [sender setTranslation:CGPointZero inView:sender.view];
             
         }
@@ -123,7 +156,7 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 
 //        self.unitDistance = [self getDistance:CGPointMake(0, 0) toPoint:CGPointMake(size.width, size.height)] / 4.0;
 
-        
+        self.mazeWidth = 1000;
 
         
         
@@ -150,9 +183,10 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 //        [self addChild:wall];
         
         self.abbas = [[SKCameraNode alloc] init];
-        
+        [self addChild:self.abbas];
         self.camera = self.abbas;
         
+        self.camera.position = CGPointMake(size.width/2.0, size.height/2.0);
         
         [self createMazeWithDifficulty:self.difficulty];
         [self setupMotion];
@@ -164,9 +198,12 @@ static const uint32_t groundBitMask     =  0x1 << 3;
 - (void)createMazeWithDifficulty:(int)difficulty
 {
 //    CGSize mazeSize = CGSizeMake(160*2, 240*2);
-    CGSize mazeSize = CGSizeMake(500, 1000);
+    CGSize mazeSize = CGSizeMake(self.size.height/2.0, self.mazeWidth);
     NSLog(@"size:%@",NSStringFromCGSize(mazeSize));
 
+    
+    
+    
 
     // 2 4 8 10 16 20 32 40 80/160
     // 2 4 8 16 6 12 24 48 10 20 40 80 30 60 120/240
@@ -174,7 +211,7 @@ static const uint32_t groundBitMask     =  0x1 << 3;
     // 
     
     
-    CGSize itemSize = CGSizeMake(40, 40);
+    CGSize itemSize = CGSizeMake(32, 32);
     int row = floorf(mazeSize.height / itemSize.height);
     int col = floorf(mazeSize.width / itemSize.width);
     
@@ -194,7 +231,7 @@ static const uint32_t groundBitMask     =  0x1 << 3;
                     {
                         CGRect rect = CGRectMake((r*itemSize.width), (c*itemSize.height), itemSize.height, itemSize.height);
 //                        [bodies addObject:[SKPhysicsBody bodyWithEdgeLoopFromRect:rect]];
-//                        CGPathAddRect(path, NULL, rect);
+                        CGPathAddRect(path, NULL, rect);
                         
                         dispatch_async(dispatch_get_main_queue(), ^(void)
                                        {
