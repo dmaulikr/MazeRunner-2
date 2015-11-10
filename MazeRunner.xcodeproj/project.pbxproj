@@ -17,6 +17,9 @@
 		CF7387661B67994300676A03 /* MazeRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387651B67994300676A03 /* MazeRunnerTests.m */; };
 		CF7387721B679B3D00676A03 /* DEMazeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7387711B679B3D00676A03 /* DEMazeGenerator.m */; };
 		CF7387741B679B4D00676A03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7387731B679B4D00676A03 /* CoreGraphics.framework */; };
+		CFA929B71BF0C3B3000B880F /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA929B61BF0C3B3000B880F /* SplashScene.m */; };
+		CFA929BB1BF0C4AC000B880F /* DifficultyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA929BA1BF0C4AC000B880F /* DifficultyScene.m */; };
+		CFA929BE1BF0C7F6000B880F /* GameMenuOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA929BD1BF0C7F6000B880F /* GameMenuOverlay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,13 @@
 		CF7387701B679B3D00676A03 /* DEMazeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMazeGenerator.h; sourceTree = "<group>"; };
 		CF7387711B679B3D00676A03 /* DEMazeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMazeGenerator.m; sourceTree = "<group>"; };
 		CF7387731B679B4D00676A03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CFA929B51BF0C3B3000B880F /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
+		CFA929B61BF0C3B3000B880F /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScene.m; sourceTree = "<group>"; };
+		CFA929B91BF0C4AC000B880F /* DifficultyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DifficultyScene.h; sourceTree = "<group>"; };
+		CFA929BA1BF0C4AC000B880F /* DifficultyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifficultyScene.m; sourceTree = "<group>"; };
+		CFA929BC1BF0C7F6000B880F /* GameMenuOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMenuOverlay.h; sourceTree = "<group>"; };
+		CFA929BD1BF0C7F6000B880F /* GameMenuOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMenuOverlay.m; sourceTree = "<group>"; };
+		CFA929BF1BF10E25000B880F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,19 +101,19 @@
 		CF7387431B67994200676A03 /* MazeRunner */ = {
 			isa = PBXGroup;
 			children = (
+				CFA929B81BF0C3C5000B880F /* Scenes */,
 				CF73876F1B679B3D00676A03 /* DEIntegerPoint.h */,
 				CF7387701B679B3D00676A03 /* DEMazeGenerator.h */,
 				CF7387711B679B3D00676A03 /* DEMazeGenerator.m */,
 				CF7387481B67994200676A03 /* AppDelegate.h */,
 				CF7387491B67994200676A03 /* AppDelegate.m */,
-				CF73874B1B67994200676A03 /* GameScene.h */,
-				CF73874C1B67994200676A03 /* GameScene.m */,
 				CF7387501B67994200676A03 /* GameViewController.h */,
 				CF7387511B67994200676A03 /* GameViewController.m */,
 				CF7387531B67994200676A03 /* Main.storyboard */,
 				CF7387561B67994200676A03 /* Images.xcassets */,
 				CF7387581B67994200676A03 /* LaunchScreen.xib */,
 				CF7387441B67994200676A03 /* Supporting Files */,
+				CFA929BF1BF10E25000B880F /* Constants.h */,
 			);
 			path = MazeRunner;
 			sourceTree = "<group>";
@@ -133,6 +143,21 @@
 				CF7387641B67994300676A03 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFA929B81BF0C3C5000B880F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CFA929B51BF0C3B3000B880F /* SplashScene.h */,
+				CFA929B61BF0C3B3000B880F /* SplashScene.m */,
+				CFA929B91BF0C4AC000B880F /* DifficultyScene.h */,
+				CFA929BA1BF0C4AC000B880F /* DifficultyScene.m */,
+				CF73874B1B67994200676A03 /* GameScene.h */,
+				CF73874C1B67994200676A03 /* GameScene.m */,
+				CFA929BC1BF0C7F6000B880F /* GameMenuOverlay.h */,
+				CFA929BD1BF0C7F6000B880F /* GameMenuOverlay.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,10 +261,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA929BB1BF0C4AC000B880F /* DifficultyScene.m in Sources */,
 				CF7387521B67994200676A03 /* GameViewController.m in Sources */,
 				CF7387721B679B3D00676A03 /* DEMazeGenerator.m in Sources */,
 				CF73874A1B67994200676A03 /* AppDelegate.m in Sources */,
+				CFA929B71BF0C3B3000B880F /* SplashScene.m in Sources */,
 				CF73874D1B67994200676A03 /* GameScene.m in Sources */,
+				CFA929BE1BF0C7F6000B880F /* GameMenuOverlay.m in Sources */,
 				CF7387471B67994200676A03 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

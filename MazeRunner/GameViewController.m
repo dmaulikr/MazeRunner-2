@@ -7,30 +7,10 @@
 //
 
 #import "GameViewController.h"
-#import "GameScene.h"
-//#import "GameScene1.h"
-
+#import "SplashScene.h"
 
 @implementation GameViewController
 
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//
-//    // Configure the view.
-//    SKView * skView = (SKView *)self.view;
-//    skView.showsFPS = YES;
-//    skView.showsNodeCount = YES;
-//    /* Sprite Kit applies additional optimizations to improve rendering performance */
-//    skView.ignoresSiblingOrder = YES;
-//    
-//    // Create and configure the scene.
-//    GameScene *scene = [GameScene sceneWithSize:self.view.bounds.size];
-//    scene.scaleMode = SKSceneScaleModeAspectFill;
-//    
-//    // Present the scene.
-//    [skView presentScene:scene];
-//}
 
 - (void)viewWillLayoutSubviews
 {
@@ -38,14 +18,23 @@
     
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.multipleTouchEnabled = YES;
+//    skView.multipleTouchEnabled = YES;
 
     if (!skView.scene) {
+#if DEBUG
         skView.showsFPS = YES;
+        skView.showsDrawCount = YES;
         skView.showsNodeCount = YES;
-//        skView.showsPhysics=YES;
+        skView.showsPhysics=YES;
+#endif
+        
+        //        skView.ignoresSiblingOrder = YES;
+        //        skView.frameInterval = 2;
+        //        skView.shouldCullNonVisibleNodes = NO;
+        
+        
         // Create and configure the scene.
-        SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
+        SKScene * scene = [SplashScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         // Present the scene.
